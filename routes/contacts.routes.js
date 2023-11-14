@@ -34,17 +34,17 @@ contactRouter.get('/', async(req, res) => {
 //Create
 contactRouter.post('/create', async (req, res) => {
   try {
-    // Create a new contact instance with the data from the request body
-    const contactData = req.body;
-    // Set the "user" field of the contacts to the authenticated user's ID
-    contactData.user = req.userId;
+    // Create a new movie instance with the data from the request body
+    const movieData = req.body;
+    // Set the "user" field of the movie to the authenticated user's ID
+    movieData.user = req.userId;
 
-    const contact = new ContactModel(contactData);
-    await contact.save();
+    const movie = new ContactModel(movieData);
+    movie.save().then(
     res.send({
-      message: "Contact created",
+      message: "Movie created",
       status: 1,
-    });
+    }));
   } catch (error) {
     res.send({
       message: error.message,
@@ -60,7 +60,7 @@ contactRouter.patch('/', async (req, res) => {
     try {
         await ContactModel.findByIdAndUpdate({_id:id}, req.body)
         res.send({
-            message: "Contact updated",
+            message: "Movie updated",
             status: 1
         })
     } catch (error) {
@@ -78,7 +78,7 @@ contactRouter.delete('/', async (req, res) => {
     try {
         await ContactModel.findByIdAndDelete({_id:id})
         res.send({
-            message: "Contact deleted",
+            message: "Movie deleted",
             status: 1
         })  
     } catch (error) {
@@ -91,5 +91,5 @@ contactRouter.delete('/', async (req, res) => {
 
 
 module.exports = {
-  contactRouter,
+    contactRouter,
 };

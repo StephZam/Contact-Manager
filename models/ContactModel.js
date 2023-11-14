@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
-    name: {type: String, required: true},
+    title: {type: String, required: true},
     image: {type: String, required: true},
-    status: {type: String, required: true},
-    phone: {type: Number, required: true},
+    body: {type: String, required: true},
     user: {type: String, required: true},
 },{
     versionKey: false
