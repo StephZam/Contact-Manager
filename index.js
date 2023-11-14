@@ -9,7 +9,7 @@ app.use(express.json());
 const { userRouter } = require('./routes/user.routes');
 app.use('/user', userRouter);
 const { contactRouter } = require('./routes/contacts.routes');
-app.use('/contact', contactRouter);
+app.use('/movie', contactRouter);
 
 
 app.get('/', (req, res) => {
